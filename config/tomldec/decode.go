@@ -2,7 +2,6 @@ package tomldec
 
 import (
 	"github.com/BurntSushi/toml"
-
 	"github.com/cnych/starjazz/config"
 )
 
