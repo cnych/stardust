@@ -1,16 +1,22 @@
 language: go
 go:
-  - 1.9.x
   - 1.8.x
-  - 1.7.x
   - tip
+
+# prevent double test runs for PRs
+branches:
+  only:
+    - "master"
+
 os:
   - linux
-  - osx
+  
 matrix:
   allow_failures:
     - go: tip
   fast_finish: true
+
+install: true
 # install:
   # - go get github.com/magefile/mage
   # - mage vendor
