@@ -1,7 +1,6 @@
 language: go
 go:
   - 1.8.x
-  - tip
 
 # prevent double test runs for PRs
 branches:
@@ -12,8 +11,6 @@ os:
   - linux
   
 matrix:
-  allow_failures:
-    - go: tip
   fast_finish: true
 
 install: true
