@@ -1,4 +1,7 @@
 # starjazz
+
+[![Build Status](https://travis-ci.org/cnych/starjazz.svg?branch=master)](https://travis-ci.org/cnych/starjazz)
+
 starjazz for go, this is a tooset for golang in daily development~
 
 ## 日志扩展包：logx
