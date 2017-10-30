@@ -1,7 +1,8 @@
 language: go
-dist: precise
 go:
-  - 1.7.3
+  - 1.9.x
+  - 1.8.x
+  - 1.7.x
   - tip
 os:
   - linux
@@ -10,12 +11,13 @@ matrix:
   allow_failures:
     - go: tip
   fast_finish: true
-install:
-  - go get github.com/magefile/mage
-  - mage vendor
+# install:
+  # - go get github.com/magefile/mage
+  # - mage vendor
 script:
-  - mage hugoRace
-  - mage -v check
+  - go run config/example/main.go
+  # - mage hugoRace
+  # - mage -v check
   # - ./hugo -s docs/
   # - ./hugo --renderToMemory -s docs/
 # before_install:
