@@ -4,7 +4,7 @@
 
 直接执行：
 ```shell
-go run loader_toml.go
+go run main.go
 ```
 
 得到结果：(失败)
