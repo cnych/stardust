@@ -8,19 +8,19 @@ import (
 	"strings"
 )
 
+// 加载toml数据，支持网络地址
 func loadData(loc string) ([]byte, error) {
 	if strings.HasPrefix(loc, "http://") || strings.HasPrefix(loc, "https://") {
-		return loadHttp(loc)
-	} else {
-		return loadFile(loc)
+		return loadHTTP(loc)
 	}
+	return loadFile(loc)
 }
 
 func loadFile(filename string) ([]byte, error) {
 	return ioutil.ReadFile(filename)
 }
 
-func loadHttp(urlStr string) ([]byte, error) {
+func loadHTTP(urlStr string) ([]byte, error) {
 	resp, err := goreq.Request{Method: http.MethodGet, Uri: urlStr}.Do()
 	if err != nil {
 		return nil, err
