@@ -2,8 +2,8 @@ package memory
 
 import (
 	"github.com/hashicorp/golang-lru/simplelru"
-	"starjazz/cache"
-	"starjazz/syncx"
+	"github.com/cnych/starjazz/cache"
+	"github.com/cnych/starjazz/syncx"
 	"sync"
 	"time"
 )
