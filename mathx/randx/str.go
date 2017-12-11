@@ -2,6 +2,8 @@ package randx
 
 import (
 	"math/rand"
+	crand "crypto/rand"
+	"fmt"
 )
 
 var (
@@ -29,4 +31,10 @@ func RandomStr(n int) string {
 		r[i] = set1[rand.Intn(nSet)]
 	}
 	return string(r)
+}
+
+func InitToken(size int) string {
+	b := make([]byte, size)
+	crand.Read(b)
+	return fmt.Sprintf("%x", b)
 }
