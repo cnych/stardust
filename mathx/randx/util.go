@@ -1,17 +1,10 @@
 package randx
 
 import (
-	"crypto/rand"
 	"math/rand"
 	"time"
 	"fmt"
 )
-
-func InitToken(size int) string {
-	b := make([]byte, size)
-	rand.Read(b)
-	return fmt.Sprintf("%x", b)
-}
 
 func InitSeed() {
 	rand.Seed(time.Now().UnixNano())
