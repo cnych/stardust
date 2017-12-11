@@ -3,7 +3,6 @@ package randx
 import (
 	"math/rand"
 	"time"
-	"fmt"
 )
 
 func InitSeed() {
