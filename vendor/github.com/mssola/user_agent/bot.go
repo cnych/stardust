@@ -1,4 +1,4 @@
-// Copyright (C) 2014-2017 Miquel Sabaté Solà <mikisabate@gmail.com>
+// Copyright (C) 2014-2019 Miquel Sabaté Solà <mikisabate@gmail.com>
 // This file is licensed under the MIT license.
 // See the LICENSE file.
 
@@ -22,6 +22,8 @@ func getFromSite(comment []string) string {
 	idx := 2
 	if len(comment) < 3 {
 		idx = 0
+	} else if len(comment) == 4 {
+		idx = 3
 	}
 
 	// Pick the site.
@@ -34,7 +36,7 @@ func getFromSite(comment []string) string {
 
 		// This is a large comment, usually the name will be in the previous
 		// field of the comment.
-		return strings.TrimSpace(comment[1])
+		return strings.TrimSpace(comment[idx-1])
 	}
 	return ""
 }
@@ -43,8 +45,9 @@ func getFromSite(comment []string) string {
 // mobile bot. This function also modifies some attributes in the receiver
 // accordingly.
 func (p *UserAgent) googleBot() bool {
-	// This is a hackish way to detect Google's mobile bot.
-	if strings.Index(p.ua, "Googlebot") != -1 {
+	// This is a hackish way to detect Google's mobile bot (Googlebot, AdsBot-Google-Mobile, etc.).
+	// See https://support.google.com/webmasters/answer/1061943
+	if strings.Index(p.ua, "Google") != -1 {
 		p.platform = ""
 		p.undecided = true
 	}

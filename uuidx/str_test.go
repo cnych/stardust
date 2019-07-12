@@ -1,7 +1,7 @@
 package uuidx
 
 import (
-	"github.com/cnych/starjazz/stringsx"
+	"github.com/cnych/stardust/stringsx"
 	"github.com/satori/go.uuid"
 	"testing"
 )

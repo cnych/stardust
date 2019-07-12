@@ -1,7 +1,7 @@
 package urlx
 
 import (
-	"github.com/cnych/starjazz/stringsx"
+	"github.com/cnych/stardust/stringsx"
 )
 
 var (

@@ -1,7 +1,7 @@
 package stringsx
 
 import (
-	"github.com/cnych/starjazz/netx/httpx"
+	"github.com/cnych/stardust/netx/httpx"
 	"path"
 	"regexp"
 	"strings"

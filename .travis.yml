@@ -9,7 +9,7 @@ branches:
 
 os:
   - linux
-  
+
 matrix:
   fast_finish: true
 
@@ -18,7 +18,7 @@ install: true
   # - go get github.com/magefile/mage
   # - mage vendor
 script:
-  - go run $HOME/gopath/src/github.com/cnych/starjazz/config/example/main.go
+  - go run $HOME/gopath/src/github.com/cnych/stardust/config/example/main.go
   # - mage hugoRace
   # - mage -v check
   # - ./hugo -s docs/

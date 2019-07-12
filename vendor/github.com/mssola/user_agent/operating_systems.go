@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2017 Miquel Sabaté Solà <mikisabate@gmail.com>
+// Copyright (C) 2012-2019 Miquel Sabaté Solà <mikisabate@gmail.com>
 // This file is licensed under the MIT license.
 // See the LICENSE file.
 
@@ -88,6 +88,8 @@ func webkit(p *UserAgent, comment []string) {
 		}
 		if len(comment) > 3 {
 			p.localization = comment[3]
+		} else if len(comment) == 3 {
+			_ = p.googleBot()
 		}
 	} else if len(comment) > 0 {
 		if len(comment) > 3 {
@@ -127,7 +129,7 @@ func gecko(p *UserAgent, comment []string) {
 				p.os = normalizeOS(comment[1])
 			}
 		} else {
-			if p.platform == "Android" {
+			if strings.Contains(p.platform, "Android") {
 				p.mobile = true
 				p.platform, p.os = normalizeOS(comment[1]), p.platform
 			} else if comment[0] == "Mobile" || comment[0] == "Tablet" {
@@ -280,17 +282,17 @@ func (p *UserAgent) detectOS(s section) {
 	}
 }
 
-// Returns a string containing the platform..
+// Platform returns a string containing the platform..
 func (p *UserAgent) Platform() string {
 	return p.platform
 }
 
-// Returns a string containing the name of the Operating System.
+// OS returns a string containing the name of the Operating System.
 func (p *UserAgent) OS() string {
 	return p.os
 }
 
-// Returns a string containing the localization.
+// Localization returns a string containing the localization.
 func (p *UserAgent) Localization() string {
 	return p.localization
 }
@@ -323,7 +325,7 @@ func osName(osSplit []string) (name, version string) {
 	return name, version
 }
 
-// Returns combined information for the operating system.
+// OSInfo returns combined information for the operating system.
 func (p *UserAgent) OSInfo() OSInfo {
 	// Special case for iPhone weirdness
 	os := strings.Replace(p.os, "like Mac OS X", "", 1)

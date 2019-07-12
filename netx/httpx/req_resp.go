@@ -3,8 +3,8 @@ package httpx
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/cnych/starjazz/encodingx/base64x"
-	"github.com/cnych/starjazz/encodingx/jsonx/freejson"
+	"github.com/cnych/stardust/encodingx/base64x"
+	"github.com/cnych/stardust/encodingx/jsonx/freejson"
 	"net/http"
 )
 

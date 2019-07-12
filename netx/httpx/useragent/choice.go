@@ -1,6 +1,6 @@
 package useragent
 
-import "github.com/cnych/starjazz/mathx/randx"
+import "github.com/cnych/stardust/mathx/randx"
 
 func ChoiceUA(filters ...Filter) *UA {
 	l := FindUA(filters...)

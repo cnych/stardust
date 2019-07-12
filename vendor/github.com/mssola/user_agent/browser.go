@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2017 Miquel Sabaté Solà <mikisabate@gmail.com>
+// Copyright (C) 2012-2019 Miquel Sabaté Solà <mikisabate@gmail.com>
 // This file is licensed under the MIT license.
 // See the LICENSE file.
 
@@ -69,12 +69,26 @@ func (p *UserAgent) detectBrowser(sections []section) {
 					p.browser.Name = "Opera"
 					p.browser.Version = sections[slen-1].version
 				default:
-					if sections[sectionIndex].name == "Chrome" {
-						p.browser.Name = "Chrome"
-					} else if sections[sectionIndex].name == "Chromium" {
-						p.browser.Name = "Chromium"
-					} else {
-						p.browser.Name = "Safari"
+					switch sections[slen-3].name {
+					case "YaBrowser":
+						p.browser.Name = "YaBrowser"
+						p.browser.Version = sections[slen-3].version
+					default:
+						switch sections[sectionIndex].name {
+						case "Chrome", "CriOS":
+							p.browser.Name = "Chrome"
+						case "Chromium":
+							p.browser.Name = "Chromium"
+						default:
+							p.browser.Name = "Safari"
+						}
+					}
+					// It's possible the google-bot emulates these now
+					for _, comment := range engine.comment {
+						if len(comment) > 5 && strings.HasPrefix(comment, "Googlebot") {
+							p.undecided = true
+							break
+						}
 					}
 				}
 			} else if engine.name == "Gecko" {
@@ -127,13 +141,13 @@ func (p *UserAgent) detectBrowser(sections []section) {
 	}
 }
 
-// Returns two strings. The first string is the name of the engine and the
+// Engine returns two strings. The first string is the name of the engine and the
 // second one is the version of the engine.
 func (p *UserAgent) Engine() (string, string) {
 	return p.browser.Engine, p.browser.EngineVersion
 }
 
-// Returns two strings. The first string is the name of the browser and the
+// Browser returns two strings. The first string is the name of the browser and the
 // second one is the version of the browser.
 func (p *UserAgent) Browser() (string, string) {
 	return p.browser.Name, p.browser.Version
