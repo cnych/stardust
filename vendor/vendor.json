@@ -9,10 +9,12 @@
 			"revisionTime": "2019-04-10T14:27:25Z"
 		},
 		{
-			"checksumSHA1": "Tutue3nEgM/87jitUcYv6ODwyNE=",
+			"checksumSHA1": "+nVM+CEZGAopOrYlLifgWP+X01E=",
 			"path": "github.com/satori/go.uuid",
-			"revision": "b2ce2384e17bbe0c6d34077efa39dbab3e09123b",
-			"revisionTime": "2018-10-28T12:50:25Z"
+			"revision": "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3",
+			"revisionTime": "2018-01-03T03:42:45Z",
+			"version": "=v1.2.0",
+			"versionExact": "v1.2.0"
 		},
 		{
 			"checksumSHA1": "/xRHTpN8WOK4nmZjJ1f96ER1b/o=",
