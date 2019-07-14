@@ -1,6 +1,7 @@
 package stringsx
 
 import (
+	"fmt"
 	"github.com/cnych/stardust/netx/httpx"
 	"path"
 	"regexp"
@@ -52,4 +53,8 @@ func CheckPhone(s string) bool {
 		return false
 	}
 	return true
+}
+
+func Hello(name string) string {
+	return fmt.Sprintf("Hi, %s", name)
 }
