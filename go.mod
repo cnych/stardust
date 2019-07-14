@@ -1,4 +1,4 @@
-module github.com/cnych/stardust
+module github.com/cnych/stardust/v2
 
 require (
 	github.com/mssola/user_agent v0.0.0-20190410142725-74451004a1be
