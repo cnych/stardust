@@ -1,2 +1,2 @@
 #!/bin/bash
-go generate starjazz/netx/httpx/useragent
+go generate stardust/netx/httpx/useragent
